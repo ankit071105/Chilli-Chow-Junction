@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilli Chow Junction</title>
+    <meta name="description" content="Get in touch with Chilli Chow Junction, a popular fast food spot in Jamshedpur. Find our location, contact details, and more on our contact page.">
+    <meta name="keywords" content="Chilli Chow Junction, fast food, Jamshedpur, contact us, restaurant location, food delivery, get in touch">   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080012;
+            color: #333;
+        }
+
+        nav {
+            background-color: #de5608;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 150px 20px;
+            background: url('https://ideogram.ai/assets/progressive-image/balanced/response/vVppPbP4QiixI6tJsI4UFQ') no-repeat center center/cover;
+            color: rgb(255, 255, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon h2 {
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .coming-soon p {
+            font-size: 1.5em;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .menu-section {
+            padding: 20px;
+            background: linear-gradient(to bottom right, #e4dd04 22%, #ff7308 60%);
+            margin: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: slideInRight 1.5s ease-in-out;
+        }
+
+        .menu-section h3 {
+            color: #10083f;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #10083f;
+        }
+
+        td img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Media Queries for Responsiveness */
+
+        @media (max-width: 1200px) {
+            nav h1 {
+                font-size: 1.6em;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+            }
+
+            .coming-soon h2 {
+                font-size: 3em;
+            }
+
+            .coming-soon p {
+                font-size: 1.2em;
+            }
+
+            .menu-section {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2.5em;
+            }
+
+            .coming-soon p {
+                font-size: 1em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            td img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-top: 5px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2em;
+            }
+
+            .coming-soon p {
+                font-size: 0.9em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            td img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav h1 {
+                font-size: 1.4em;
+            }
+
+            nav ul li {
+                margin-top: 5px;
+                font-size: 0.9em;
+            }
+
+            .coming-soon h2 {
+                font-size: 1.8em;
+            }
+
+            .coming-soon p {
+                font-size: 0.8em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.7em;
+            }
+
+            td img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Chilli Chow Junction</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="menu-section">
+        <h3>Our Menu</h3>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Item</th>
+            </tr>
+            <tr>
+                <td>Momos</td>
+                <td><img src="images/1.jpeg" alt="Veg Momos"> Veg Momos</td>
+            </tr>
+            <tr>
+                <td>Momos</td>
+                <td><img src="images/2.jpg" alt="Chicken Momos"> Chicken Momos</td>
+            </tr>
+            <tr>
+                <td>Momos</td>
+                <td><img src="images/3.jpg" alt="Paneer Momos"> Paneer Momos</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/4.jpg" alt="Veg Chowmein"> Veg Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/5.jpeg" alt="Chicken Chowmein"> Chicken Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/6.jpeg" alt="Egg Chowmein"> Egg Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/7.jpeg" alt="Paneer Chowmein"> Paneer Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/8.jpeg" alt="Manchurian Chowmein"> Manchurian Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/9.jpg" alt="Mix Chowmein"> Mix Chowmein</td>
+            </tr>
+            <tr>
+                <td>Chowmein</td>
+                <td><img src="images/10.jpeg" alt="Spring Chowmein"> Spring Chowmein</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/11.jpg" alt="Veg Rice"> Veg Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/12.jpeg" alt="Chicken Rice"> Chicken Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/13.jpg" alt="Egg Rice"> Egg Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/14.jpeg" alt="Paneer Rice"> Paneer Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/15.jpg" alt="Manchurian Rice"> Manchurian Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/12.jpeg" alt="Mix Rice"> Mix Rice</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td><img src="images/10.jpeg" alt="Spring Rice"> Spring Rice</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/18.jpg" alt="Veg Roll"> Veg Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/19.jpeg" alt="Chicken Roll"> Chicken Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/20.jpeg" alt="Single Egg Roll"> Single Egg Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/21.jpeg" alt="Double Egg Roll"> Double Egg Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/22.jpeg" alt="Manchurian Roll"> Manchurian Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/19.jpeg" alt="Mix Roll"> Mix Roll</td>
+            </tr>
+            <tr>
+                <td>Roll</td>
+                <td><img src="images/24.jpg" alt="Spring Roll"> Spring Roll</td>
+            </tr>
+            <tr>
+                <td>Chilly</td>
+                <td><img src="images/25.jpeg" alt="Chicken Chilly"> Chicken Chilly</td>
+            </tr>
+            <tr>
+                <td>Chilly</td>
+                <td><img src="images/26.jpeg" alt="Paneer Chilly"> Paneer Chilly</td>
+            </tr>
+            <tr>
+                <td>Chilly</td>
+                <td><img src="images/27.jpeg" alt="Baby Corn Chilly"> Baby Corn Chilly</td>
+            </tr>
+            <tr>
+                <td>Chilly</td>
+                <td><img src="images/28.jpeg" alt="Chana Chilly"> Chana Chilly</td>
+            </tr>
+            <tr>
+                <td>Extra</td>
+                <td><img src="images/29.jpg" alt="Chicken Salad"> Chicken Salad</td>
+            </tr>
+            <tr>
+                <td>Extra</td>
+                <td><img src="images/30.jpeg" alt="Chicken Lollypop"> Chicken Lollypop</td>
+            </tr>
+            <tr>
+                <td>Extra</td>
+                <td><img src="images/35.jpeg" alt="French Fries">French Fries</td>
+            </tr>
+            <tr>
+                <td>Burger</td>
+                <td><img src="images/31.webp" alt="Veg Burger"> Veg Burger</td>
+            </tr>
+            <tr>
+                <td>Burger</td>
+                <td><img src="images/32.jpeg" alt="Cheese Burger"> Cheese Burger</td>
+            </tr>
+            <tr>
+                <td>Burger</td>
+                <td><img src="images/33.jpeg" alt="Chicken Burger"> Chicken Burger</td>
+            </tr>
+            <tr>
+                <td>Burger</td>
+                <td><img src="images/34.jpeg" alt="Paneer Burger"> Paneer Burger</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Chilli Chow Junction. All rights reserved.</p>
+    </footer>
+</body>
+</html>

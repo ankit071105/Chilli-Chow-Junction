@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilli Chow Junction</title>
+    <meta name="description" content="Get in touch with Chilli Chow Junction, a popular fast food spot in Jamshedpur. Find our location, contact details, and more on our contact page.">
+    <meta name="keywords" content="Chilli Chow Junction, fast food, Jamshedpur, contact us, restaurant location, food delivery, get in touch">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #040115;
+            color: #333;
+        }
+
+        nav {
+            background-color: #de5608;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 150px 20px;
+            background: url('https://ideogram.ai/assets/progressive-image/balanced/response/vVppPbP4QiixI6tJsI4UFQ') no-repeat center center/cover;
+            color: rgb(255, 255, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon h2 {
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        .coming-soon p {
+            font-size: 1.5em;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .menu-section {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: slideInRight 1.5s ease-in-out;
+        }
+
+        .menu-section h3 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #d32f2f;
+        }
+
+        td img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: #de5608;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Media Queries for Responsiveness */
+
+        @media (max-width: 1200px) {
+            nav h1 {
+                font-size: 1.6em;
+            }
+
+            nav ul li {
+                margin-left: 15px;
+            }
+
+            .coming-soon h2 {
+                font-size: 3em;
+            }
+
+            .coming-soon p {
+                font-size: 1.2em;
+            }
+
+            .menu-section {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2.5em;
+            }
+
+            .coming-soon p {
+                font-size: 1em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            td img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-top: 5px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2em;
+            }
+
+            .coming-soon p {
+                font-size: 0.9em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            td img {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav h1 {
+                font-size: 1.4em;
+            }
+
+            nav ul li {
+                margin-top: 5px;
+                font-size: 0.9em;
+            }
+
+            .coming-soon h2 {
+                font-size: 1.8em;
+            }
+
+            .coming-soon p {
+                font-size: 0.8em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.7em;
+            }
+
+            td img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Chilli Chow Junction</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="coming-soon">
+        <h2>We are coming soon!</h2>
+        <p>Get ready to experience the best momos, chowmein, and more at Chilli Chow Junction. Stay tuned!</p>
+    </div>
+
+
+
+    <footer>
+        <p>&copy; 2024 Chilli Chow Junction. All rights reserved.</p>
+    </footer>
+</body>
+</html>
