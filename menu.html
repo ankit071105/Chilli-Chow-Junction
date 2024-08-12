@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilli Chow Junction</title>
-    <meta name="description" content="Get in touch with Chilli Chow Junction, a popular fast food spot in Jamshedpur. Find our location, contact details, and more on our contact page.">
-    <meta name="keywords" content="Chilli Chow Junction, fast food, Jamshedpur, contact us, restaurant location, food delivery, get in touch">   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-
-    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>Food Ordering System</title>
     <style>
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #080012;
-            color: #333;
+            background-color: #040115;
+            color: #dae9e9;
         }
 
         nav {
@@ -59,215 +51,72 @@
             color: #ffeb3b;
         }
 
-        .coming-soon {
-            text-align: center;
-            padding: 150px 20px;
-            background: url('https://ideogram.ai/assets/progressive-image/balanced/response/vVppPbP4QiixI6tJsI4UFQ') no-repeat center center/cover;
-            color: rgb(255, 255, 255);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coming-soon h2 {
-            font-size: 3.5em;
-            color: white;
+        .menu-item {
             margin-bottom: 20px;
-            animation: fadeInDown 1.5s ease-in-out;
-        }
-
-        .coming-soon p {
-            font-size: 1.5em;
-            animation: fadeInUp 2s ease-in-out;
-        }
-
-        .menu-section {
             padding: 20px;
-            background: linear-gradient(to bottom right, #e4dd04 22%, #ff7308 60%);
-            margin: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            animation: slideInRight 1.5s ease-in-out;
+            margin-left: 30px;
         }
 
-        .menu-section h3 {
-            color: #10083f;
-            margin-bottom: 10px;
+        .menu-item h3 {
+            margin: 0;
         }
 
-        table {
+        .menu-item button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-item button:hover {
+            background-color: #45a049;
+        }
+
+        .modal, .cart-page {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #de5608;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            border-collapse: collapse;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 500;
         }
 
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        .modal button, .cart-page button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
 
-        th {
-            background-color: #f2f2f2;
-            color: #10083f;
-        }
-
-        td img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
+        .modal button:hover, .cart-page button:hover {
+            background-color: #45a049;
         }
 
         footer {
-            background-color: #d32f2f;
+            background-color: #de5608;
             color: white;
             text-align: center;
             padding: 20px 0;
             margin-top: 20px;
             animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInRight {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Media Queries for Responsiveness */
-
-        @media (max-width: 1200px) {
-            nav h1 {
-                font-size: 1.6em;
-            }
-
-            nav ul li {
-                margin-left: 15px;
-            }
-
-            .coming-soon h2 {
-                font-size: 3em;
-            }
-
-            .coming-soon p {
-                font-size: 1.2em;
-            }
-
-            .menu-section {
-                margin: 10px;
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin-left: 0;
-                margin-top: 10px;
-            }
-
-            .coming-soon h2 {
-                font-size: 2.5em;
-            }
-
-            .coming-soon p {
-                font-size: 1em;
-            }
-
-            .menu-section {
-                margin: 5px;
-                padding: 10px;
-            }
-
-            table {
-                font-size: 0.9em;
-            }
-
-            td img {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul li {
-                margin-top: 5px;
-            }
-
-            .coming-soon h2 {
-                font-size: 2em;
-            }
-
-            .coming-soon p {
-                font-size: 0.9em;
-            }
-
-            .menu-section {
-                margin: 5px;
-                padding: 5px;
-            }
-
-            table {
-                font-size: 0.8em;
-            }
-
-            td img {
-                width: 18px;
-                height: 18px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            nav h1 {
-                font-size: 1.4em;
-            }
-
-            nav ul li {
-                margin-top: 5px;
-                font-size: 0.9em;
-            }
-
-            .coming-soon h2 {
-                font-size: 1.8em;
-            }
-
-            .coming-soon p {
-                font-size: 0.8em;
-            }
-
-            .menu-section {
-                margin: 5px;
-                padding: 5px;
-            }
-
-            table {
-                font-size: 0.7em;
-            }
-
-            td img {
-                width: 16px;
-                height: 16px;
-            }
         }
     </style>
 </head>
@@ -281,159 +130,256 @@
         </ul>
     </nav>
 
+    <!-- Menu Items -->
+    <div class="menu-item">
+        <h3>Momos</h3>
+        <button onclick="openMomosOptions()">Order Now</button>
+    </div>
 
-    <div class="menu-section">
-        <h3>Our Menu</h3>
-        <table>
-            <tr>
-                <th>Category</th>
-                <th>Item</th>
-            </tr>
-            <tr>
-                <td>Momos</td>
-                <td><img src="images/1.jpeg" alt="Veg Momos"> Veg Momos</td>
-            </tr>
-            <tr>
-                <td>Momos</td>
-                <td><img src="images/2.jpg" alt="Chicken Momos"> Chicken Momos</td>
-            </tr>
-            <tr>
-                <td>Momos</td>
-                <td><img src="images/3.jpg" alt="Paneer Momos"> Paneer Momos</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/4.jpg" alt="Veg Chowmein"> Veg Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/5.jpeg" alt="Chicken Chowmein"> Chicken Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/6.jpeg" alt="Egg Chowmein"> Egg Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/7.jpeg" alt="Paneer Chowmein"> Paneer Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/8.jpeg" alt="Manchurian Chowmein"> Manchurian Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/9.jpg" alt="Mix Chowmein"> Mix Chowmein</td>
-            </tr>
-            <tr>
-                <td>Chowmein</td>
-                <td><img src="images/10.jpeg" alt="Spring Chowmein"> Spring Chowmein</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/11.jpg" alt="Veg Rice"> Veg Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/12.jpeg" alt="Chicken Rice"> Chicken Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/13.jpg" alt="Egg Rice"> Egg Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/14.jpeg" alt="Paneer Rice"> Paneer Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/15.jpg" alt="Manchurian Rice"> Manchurian Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/12.jpeg" alt="Mix Rice"> Mix Rice</td>
-            </tr>
-            <tr>
-                <td>Rice</td>
-                <td><img src="images/10.jpeg" alt="Spring Rice"> Spring Rice</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/18.jpg" alt="Veg Roll"> Veg Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/19.jpeg" alt="Chicken Roll"> Chicken Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/20.jpeg" alt="Single Egg Roll"> Single Egg Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/21.jpeg" alt="Double Egg Roll"> Double Egg Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/22.jpeg" alt="Manchurian Roll"> Manchurian Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/19.jpeg" alt="Mix Roll"> Mix Roll</td>
-            </tr>
-            <tr>
-                <td>Roll</td>
-                <td><img src="images/24.jpg" alt="Spring Roll"> Spring Roll</td>
-            </tr>
-            <tr>
-                <td>Chilly</td>
-                <td><img src="images/25.jpeg" alt="Chicken Chilly"> Chicken Chilly</td>
-            </tr>
-            <tr>
-                <td>Chilly</td>
-                <td><img src="images/26.jpeg" alt="Paneer Chilly"> Paneer Chilly</td>
-            </tr>
-            <tr>
-                <td>Chilly</td>
-                <td><img src="images/27.jpeg" alt="Baby Corn Chilly"> Baby Corn Chilly</td>
-            </tr>
-            <tr>
-                <td>Chilly</td>
-                <td><img src="images/28.jpeg" alt="Chana Chilly"> Chana Chilly</td>
-            </tr>
-            <tr>
-                <td>Extra</td>
-                <td><img src="images/29.jpg" alt="Chicken Salad"> Chicken Salad</td>
-            </tr>
-            <tr>
-                <td>Extra</td>
-                <td><img src="images/30.jpeg" alt="Chicken Lollypop"> Chicken Lollypop</td>
-            </tr>
-            <tr>
-                <td>Extra</td>
-                <td><img src="images/35.jpeg" alt="French Fries">French Fries</td>
-            </tr>
-            <tr>
-                <td>Burger</td>
-                <td><img src="images/31.webp" alt="Veg Burger"> Veg Burger</td>
-            </tr>
-            <tr>
-                <td>Burger</td>
-                <td><img src="images/32.jpeg" alt="Cheese Burger"> Cheese Burger</td>
-            </tr>
-            <tr>
-                <td>Burger</td>
-                <td><img src="images/33.jpeg" alt="Chicken Burger"> Chicken Burger</td>
-            </tr>
-            <tr>
-                <td>Burger</td>
-                <td><img src="images/34.jpeg" alt="Paneer Burger"> Paneer Burger</td>
-            </tr>
-        </table>
+    <div class="menu-item">
+        <h3>Chowmin</h3>
+        <button onclick="openChowminOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>Rice</h3>
+        <button onclick="openRiceOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>French Fries</h3>
+        <button onclick="openFriesOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>Chilly</h3>
+        <button onclick="openChillyFriesOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>Diet Options</h3>
+        <button onclick="openDietOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>Rolls</h3>
+        <button onclick="openRollsOptions()">Order Now</button>
+    </div>
+
+    <div class="menu-item">
+        <h3>Burger</h3>
+        <button onclick="openBurgerOptions()">Order Now</button>
+    </div>
+
+    <!-- Modals -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="modal" id="momosOptions">
+        <h3>Select Momos Type:</h3>
+        <button onclick="selectMomosType('Steam Momos', 50, 100)">Steam Momos (₹50/₹100)</button>
+        <button onclick="selectMomosType('Chilly Momos', 60, 110)">Chilly Momos (₹60/₹110)</button>
+        <button onclick="selectMomosType('Kurkure Momos', 70, 120)">Kurkure Momos (₹70/₹120)</button>
+        <button onclick="selectMomosType('Fry Momos', 65, 115)">Fry Momos (₹65/₹115)</button>
+    </div>
+
+    <div class="modal" id="chowminOptions">
+        <h3>Select Chowmin Type:</h3>
+        <button onclick="selectChowminType('Chicken Chowmin', 80, 150)">Chicken Chowmin (₹80/₹150)</button>
+        <button onclick="selectChowminType('Egg Chowmin', 70, 130)">Egg Chowmin (₹70/₹130)</button>
+        <button onclick="selectChowminType('Mix Chowmin', 90, 160)">Mix Chowmin (₹90/₹160)</button>
+        <button onclick="selectChowminType('Spring Chowmin', 75, 140)">Spring Chowmin (₹75/₹140)</button>
+    </div>
+
+    <div class="modal" id="riceOptions">
+        <h3>Select Rice Type:</h3>
+        <button onclick="selectRiceType('Chicken Rice', 90, 160)">Chicken Rice (₹90/₹160)</button>
+        <button onclick="selectRiceType('Egg Rice', 80, 150)">Egg Rice (₹80/₹150)</button>
+        <button onclick="selectRiceType('Mix Rice', 100, 180)">Mix Rice (₹100/₹180)</button>
+        <button onclick="selectRiceType('Spring Rice', 85, 160)">Spring Rice (₹85/₹160)</button>
+    </div>
+
+    <div class="modal" id="friesOptions">
+        <h3>Select Fries Type:</h3>
+        <button onclick="selectFriesType('Classic Fries', 40, 70)">Classic Fries (₹40/₹70)</button>
+        <button onclick="selectFriesType('Cheese Fries', 50, 80)">Cheese Fries (₹50/₹80)</button>
+    </div>
+
+    <div class="modal" id="chillyFriesOptions">
+        <h3>Select Chilly Type:</h3>
+        <button onclick="selectChillyFriesType('Paneer Chilly', 70, 140)">Paneer Chilly (₹70/₹140)</button>
+        <button onclick="selectChillyFriesType('Chicken Chilly', 90, 150)">Chicken Chilly (₹90/₹150)</button>
+        <button onclick="selectChillyFriesType('Manchurian Chilly', 75, 125)">Manchurian Chilly (₹75/₹125)</button>
+        <button onclick="selectChillyFriesType('Chana Chilly', 75, 175)">Chana Chilly (₹75/₹175)</button>
+        <button onclick="selectChillyFriesType('Baby Corn Chilly', 120, 230)">Baby Corn Chilly (₹120/₹230)</button>
+    </div>
+
+    <div class="modal" id="dietOptions">
+        <h3>Select Diet Option:</h3>
+        <button onclick="selectDietOption('Veg Diet', 120)"> Veg Diet (₹50)</button>
+        <button onclick="selectDietOption('Chicken Diet', 170)">Chicken Diet (₹170)</button>
+        <button onclick="selectDietOption('Premium Diet', 230)">Premium Diet (₹230)</button>
+    </div>
+
+    <div class="modal" id="rollsOptions">
+        <h3>Select Rolls Type:</h3>
+        <button onclick="selectRollsType('Chicken Roll', 90)">Chicken Roll (₹90)</button>
+        <button onclick="selectRollsType('Veg Roll', 80)">Veg Roll (₹80)</button>
+    </div>
+
+    <div class="modal" id="burgerOptions">
+        <h3>Select Burger Type:</h3>
+        <button onclick="selectBurgerType('Chicken Burger', 100)">Chicken Burger (₹100)</button>
+        <button onclick="selectBurgerType('Veg Burger', 90)">Veg Burger (₹90)</button>
+    </div>
+
+    <div class="cart-page" id="cartPage">
+        <h3>Your Order</h3>
+        <div id="cartItems"></div>
+        <button onclick="sendOrderToWhatsApp()">Send Order to WhatsApp</button>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="closeCart()">Close</button>
     </div>
 
     <footer>
-        <p>&copy; 2024 Chilli Chow Junction. All rights reserved.</p>
+        <p>Designed by ankit</p>
     </footer>
+
+    <script>
+        const cart = [];
+        const whatsappNumber = '+919031765770'; 
+
+        function openMomosOptions() {
+            document.getElementById('momosOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openChowminOptions() {
+            document.getElementById('chowminOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openRiceOptions() {
+            document.getElementById('riceOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openFriesOptions() {
+            document.getElementById('friesOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openChillyFriesOptions() {
+            document.getElementById('chillyFriesOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openDietOptions() {
+            document.getElementById('dietOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openRollsOptions() {
+            document.getElementById('rollsOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function openBurgerOptions() {
+            document.getElementById('burgerOptions').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.style.display = 'none');
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function selectMomosType(type, smallPrice, largePrice) {
+            cart.push({ item: `Momos (${type})`, price: smallPrice });
+            closeModal();
+            updateCart();
+        }
+
+        function selectChowminType(type, smallPrice, largePrice) {
+            cart.push({ item: `Chowmin (${type})`, price: smallPrice });
+            closeModal();
+            updateCart();
+        }
+
+        function selectRiceType(type, smallPrice, largePrice) {
+            cart.push({ item: `Rice (${type})`, price: smallPrice });
+            closeModal();
+            updateCart();
+        }
+
+        function selectFriesType(type, smallPrice, largePrice) {
+            cart.push({ item: `Fries (${type})`, price: smallPrice });
+            closeModal();
+            updateCart();
+        }
+
+        function selectChillyFriesType(type, smallPrice, largePrice) {
+            cart.push({ item: `Chilly Fries (${type})`, price: smallPrice });
+            closeModal();
+            updateCart();
+        }
+
+        function selectDietOption(type, price) {
+            cart.push({ item: `Diet (${type})`, price: price });
+            closeModal();
+            updateCart();
+        }
+
+        function selectRollsType(type, price) {
+            cart.push({ item: `Rolls (${type})`, price: price });
+            closeModal();
+            updateCart();
+        }
+
+        function selectBurgerType(type, price) {
+            cart.push({ item: `Burger (${type})`, price: price });
+            closeModal();
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartPage = document.getElementById('cartPage');
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.innerHTML = `${item.item} - ₹${item.price}`;
+                cartItems.appendChild(div);
+                total += item.price;
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.innerHTML = `<strong>Total: ₹${total}</strong>`;
+            cartItems.appendChild(totalDiv);
+
+            cartPage.style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function sendOrderToWhatsApp() {
+            const orderDetails = cart.map(item => `${item.item} - ₹${item.price}`).join('\n');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const message = `Order Details:\n${orderDetails}\n\nTotal: ₹${total}`;
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        function clearCart() {
+            cart.length = 0;
+            updateCart();
+        }
+
+        function closeCart() {
+            document.getElementById('cartPage').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
