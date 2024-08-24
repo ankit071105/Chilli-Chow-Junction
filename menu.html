@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Ordering System</title>
+    <title>Chilli Chow Junction Menu</title>
     <style>
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
+            font-family: Arial, sans-serif;
+            margin: 20px;
             padding: 0;
-            background-color: #040115;
-            color: #dae9e9;
+            color: rgb(241, 81, 7);
+            background: black;
         }
-
         nav {
             background-color: #de5608;
             color: white;
@@ -27,6 +26,7 @@
             margin: 0;
             font-size: 1.8em;
             font-weight: bold;
+            color: #ddd;
         }
 
         nav ul {
@@ -50,77 +50,277 @@
         nav ul li a:hover {
             color: #ffeb3b;
         }
+        @media (max-width: 1200px) {
+            nav h1 {
+                font-size: 1.6em;
+            }
 
-        .menu-item {
-            margin-bottom: 20px;
-            padding: 20px;
-            margin-left: 30px;
+            nav ul li {
+                margin-left: 15px;
+            }
+
+            .coming-soon h2 {
+                font-size: 3em;
+            }
+
+            .coming-soon p {
+                font-size: 1.2em;
+            }
+
+            .menu-section {
+                margin: 10px;
+                padding: 15px;
+            }
         }
 
-        .menu-item h3 {
-            margin: 0;
+        @media (max-width: 992px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2.5em;
+            }
+
+            .coming-soon p {
+                font-size: 1em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            td img {
+                width: 20px;
+                height: 20px;
+            }
         }
 
-        .menu-item button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-top: 5px;
+            }
+
+            .coming-soon h2 {
+                font-size: 2em;
+            }
+
+            .coming-soon p {
+                font-size: 0.9em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            td img {
+                width: 18px;
+                height: 18px;
+            }
         }
 
-        .menu-item button:hover {
-            background-color: #45a049;
+        @media (max-width: 576px) {
+            nav h1 {
+                font-size: 1.4em;
+            }
+
+            nav ul li {
+                margin-top: 5px;
+                font-size: 0.9em;
+            }
+
+            .coming-soon h2 {
+                font-size: 1.8em;
+            }
+
+            .coming-soon p {
+                font-size: 0.8em;
+            }
+
+            .menu-section {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            table {
+                font-size: 0.7em;
+            }
+
+            td img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        h1, h2 {
+            color: #ff6347;
         }
 
-        .modal, .cart-page {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #de5608;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        table {
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 500;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
-        .modal button, .cart-page button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #020917;
+        }
+
+        .section-title {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #ff6347;
+        }
+
+        .order-btn {
+            background-color: #ff6347;
             color: white;
             border: none;
+            padding: 8px 16px;
             cursor: pointer;
-        }
-
-        .modal button:hover, .cart-page button:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            background-color: #de5608;
-            color: white;
             text-align: center;
-            padding: 20px 0;
+        }
+
+        .order-btn:hover {
+            background-color: #e5533d;
+        }
+
+        .cart-container {
             margin-top: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #333;
+            color: white;
+        }
+
+        .cart-title {
+            font-size: 20px;
+            color: #ff6347;
+            margin-bottom: 10px;
+        }
+
+        .cart-item {
+            margin-bottom: 5px;
+        }
+
+        .cart-actions {
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            th, td {
+                font-size: 14px;
+                padding: 6px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            th::before, td::before {
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                text-align: left;
+                font-weight: bold;
+            }
+
+            th::before {
+                content: attr(data-title);
+            }
+
+            td::before {
+                content: attr(data-title);
+            }
+
+            th {
+                background-color: transparent;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            td {
+                text-align: left;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        .order-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .order-btn:hover {
+            background-color: #218838;
+        }
+
+        .cart-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
+
     <nav>
         <h1>Chilli Chow Junction</h1>
         <ul>
@@ -130,256 +330,400 @@
         </ul>
     </nav>
 
-    <!-- Menu Items -->
-    <div class="menu-item">
-        <h3>Momos</h3>
-        <button onclick="openMomosOptions()">Order Now</button>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Steam (Half Plate Price )</th>
+                <th>Steam (Full Plate Price )</th>
+                <th>Fry (Half Plate Price )</th>
+                <th>Fry (Full Plate Price )</th>
+                <th>Chilli (Half Plate Price )</th>
+                <th>Chilli (Full Plate Price )</th>
+                <th>Kurkure (Half Plate Price )</th>
+                <th>Kurkure (Full Plate Price )</th>
+            </tr>
+            <tr>
+                <td>Veg Momo</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Half Steam)', '₹ 30')">Order Now - ₹ 30</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Full Steam)', '₹ 60')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Half Fry)', '₹ 40')">Order Now - ₹ 40</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Full Fry)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Half Chilli)', '₹ 50 ')">Order Now - ₹ 50 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Full Chilli)', '₹ 90 ')">Order Now - ₹ 90 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Half Kurkure)', '₹ 60 ')">Order Now - ₹ 60 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Momo (Full Kurkure)', '₹ 100 ')">Order Now - ₹ 100 </button></td>
+            </tr>
+            <tr>
+                <td>Chicken Momo</td>
+
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Half Steam)', '₹ 40')">Order Now - ₹ 40</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Full Steam)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Half Fry)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Full Fry)', '₹ 90')">Order Now - ₹ 90</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Half Chilli)', '₹ 70 ')">Order Now - ₹ 70 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Full Chilli)', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Half Kurkure)', '₹ 80 ')">Order Now - ₹ 80 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Momo (Full Kurkure)', '₹ 150 ')">Order Now - ₹ 150 </button></td>
+            </tr>
+            <tr>
+                <td>Paneer Momo</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Half Steam)', '₹ 40')">Order Now - ₹ 40</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Full Steam)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Half Fry)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Full Fry)', '₹ 90')">Order Now - ₹ 90</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Half Chilli)', '₹ 70 ')">Order Now - ₹ 70 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Full Chilli)', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Half Kurkure)', '₹ 80 ')">Order Now - ₹ 80 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Momo (Full Kurkure)', '₹ 150 ')">Order Now - ₹ 150 </button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Chowmein </div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Half Plate Price</th>
+                <th>Full Plate Price</th>
+            </tr>
+            <tr>
+                <td>Veg Chowmein</td>
+                <td><button class="order-btn" onclick="orderItem('Veg (Half) Chowmein', '₹ 40')">Order Now - ₹ 40 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg (Full) Chowmein', '₹ 80')">Order Now - ₹ 80 </button></td>
+            </tr>
+            <tr>
+                <td>Chicken Chowmein</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken (Half) Chowmein', '₹ 60 ')">Order Now - ₹ 60 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken (Full) Chowmein', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+            </tr>
+            <tr>
+                <td>Paneer Chowmein</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer (Half) Chowmein', '₹ 60 ')">Order Now - ₹ 60 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer (Full) Chowmein', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+            </tr>
+            <tr>
+                <td>Egg Chowmein</td>
+                <td><button class="order-btn" onclick="orderItem('Egg (Half) Chowmein', '₹ 50 ')">Order Now - ₹ 50 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Egg (Full) Chowmein', '₹ 100 ')">Order Now - ₹ 100 </button></td>
+            </tr>
+            <tr>
+                <td>Mixed Chowmein</td>
+                <td><button class="order-btn" onclick="orderItem('Mixed (Half) Chowmein', '₹ 70 ')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Mixed (Full) Chowmein', '₹ 140 ')">Order Now - ₹ 120</button></td>
+            </tr>
+            
+        </table>
+        <div class="section-title">Rice </div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Half Plate Price</th>
+                <th>Full Plate Price</th>
+            </tr>
+            <tr>
+                <td>Veg Rice</td>
+                <td><button class="order-btn" onclick="orderItem('Veg (Half) Rice', '₹ 40')">Order Now - ₹ 40 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg (Full) Rice', '₹ 80')">Order Now - ₹ 80 </button></td>
+            </tr>
+            <tr>
+                <td>Chicken Rice</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken (Half) Rice', '₹ 60 ')">Order Now - ₹ 60 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken (Full) Rice', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+            </tr>
+            <tr>
+                <td>Paneer Rice</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer (Half) Rice', '₹ 60 ')">Order Now - ₹ 60 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer (Full) Rice', '₹ 120 ')">Order Now - ₹ 120 </button></td>
+            </tr>
+            <tr>
+                <td>Egg Rice</td>
+                <td><button class="order-btn" onclick="orderItem('Egg (Half) Rice', '₹ 50 ')">Order Now - ₹ 50 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Egg (Full) Rice', '₹ 100 ')">Order Now - ₹ 100 </button></td>
+            </tr>
+            <tr>
+                <td>Mixed Rice</td>
+                <td><button class="order-btn" onclick="orderItem('Mixed (Half) Rice', '₹ 70 ')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Mixed (Full) Rice', '₹ 140 ')">Order Now - ₹ 120</button></td>
+            </tr>
+            
+        </table>
+
+        <div class="section-title">Roll</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Veg Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Roll', '₹ 30')">Order Now - ₹ 30</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Roll', '₹ 70')">Order Now - ₹ 70</button></td>
+            </tr>
+            <tr>
+                <td>Paneer Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Roll', '₹ 70')">Order Now - ₹ 70</button></td>
+            </tr>
+            <tr>
+                <td>Single Egg Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Single Egg Roll', '₹ 40')">Order Now - ₹ 40</button></td>
+            </tr>
+            <tr>
+                <td>Double Egg Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Double Egg Roll', '₹ 50')">Order Now - ₹ 50</button></td>
+            </tr>
+            <tr>
+                <td>Veg Spring Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Spring Roll', '₹ 50')">Order Now - ₹ 50</button></td>
+            </tr>
+            <tr>
+                <td>Egg Spring Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Egg Spring Roll', '₹ 60')">Order Now - ₹ 60</button></td>
+            </tr>
+            <tr>
+                <td>Machurian Roll</td>
+                <td><button class="order-btn" onclick="orderItem('Machurian Roll', '₹ 60')">Order Now - ₹ 60</button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Chilly</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Half Plate Price</th>
+                <th>Full Plate Price</th>
+            </tr>
+            <tr>
+                <td>Chicken Chilly (Bone)</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Chilly (Bone) (Half)', '₹ 60')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Chilly (Bone) (Full)', '₹ 120')">Order Now - ₹ 120</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Chilly (Boneless)</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Chilly (Boneless) (Half)' , '₹ 70')">Order Now - ₹ 70 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Chilly (Boneless) (Full)', '₹  140')">Order Now - ₹ 140 </button></td>
+            </tr>
+            <tr>
+                <td>Paneer Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Chilly (Half)', '₹ 70 ')">Order Now - ₹ 70 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Chilly (Full)', '₹  140')">Order Now - ₹ 140</button></td>
+            </tr>
+            <tr>
+                <td>Machurian Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Machurian Chilly (Half)', '₹ 50')">Order Now - ₹ 50 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Machurian Chilly (Full)', '₹ 100')">Order Now - ₹  100</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Lollypop Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Lollypop Chilly (Half)', '₹ 100')">Order Now - ₹ 100</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Lollypop Chilly (Full)', '₹  180')">Order Now - ₹  180</button></td>
+            </tr>
+            <tr>
+                <td>Chana Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Chana Chilly (Half)', '₹ 60 ')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chana Chilly (Full)', '₹  120')">Order Now - ₹  120</button></td>
+            </tr>
+            <tr>
+                <td>Baby Corn Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Baby Corn Chilly (Half)', '₹ 70 ')">Order Now - ₹ 70 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Baby Corn Chilly (Full)', '₹ 140 ')">Order Now - ₹ 140 </button></td>
+            </tr>
+            <tr>
+                <td>Mushroom Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Mushroom Chilly (Half)', '₹ 50 ')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Mushroom Chilly (Full)', '₹ 100 ')">Order Now - ₹ 100</button></td>
+            </tr>
+            <tr>
+                <td>Chilli Chow Chicken Machurian Chilly</td>
+                <td><button class="order-btn" onclick="orderItem('Chilli Chow Chicken Machurian Chilly (Half)', '₹ 80')">Order Now - ₹ 80</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chilli Chow Chicken Machurian Chilly (Full)', '₹  150')">Order Now - ₹  150</button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Extra</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Chicken Salad</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Salad', '₹ 120')">Order Now - ₹ 120</button></td>
+            </tr>
+            <tr>
+                <td>Veg Salad</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Salad', '₹ 100')">Order Now - ₹ 100</button></td>
+            </tr>
+            <tr>
+                <td>French Fries</td>
+                <td><button class="order-btn" onclick="orderItem('French Fries', '₹ 50')">Order Now - ₹ 50</button></td>
+            </tr>
+            <tr>
+                <td>Cheese French Fries</td>
+                <td><button class="order-btn" onclick="orderItem('Cheese French Fries', '₹ 70')">Order Now - ₹ 70</button></td>
+            </tr>
+            <tr>
+                <td>Peri Peri French Fries</td>
+                <td><button class="order-btn" onclick="orderItem('Peri Peri French Fries', '₹ 80')">Order Now - ₹ 80</button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Soup</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Half Plate Price</th>
+                <th>Full Plate Price</th>
+            </tr>
+            <tr>
+                <td>Veg Soup</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Soup (Half)', '₹ 30 / 50')">Order Now - ₹ 30 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Soup (Full)', '₹  50')">Order Now - ₹ 50 </button></td>
+            </tr>
+            <tr>
+                <td>Chicken Soup</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Soup (Half)', '₹ 50 ')">Order Now - ₹ 50 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Soup (Full)', '₹ 100 ')">Order Now - ₹ 100 </button></td>
+            </tr>
+            <tr>
+                <td>Paneer Soup</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Soup (Half)', '₹ 40 ')">Order Now - ₹ 40 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Soup (Full)', '₹  80')">Order Now - ₹ 80</button></td>
+            </tr>
+            <tr>
+                <td>Egg Soup</td>
+                <td><button class="order-btn" onclick="orderItem('Egg Soup (Half)', '₹ 40 ')">Order Now - ₹ 40 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Egg Soup (Full)', '₹  70')">Order Now - ₹ 70</button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Burger</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Normal</th>
+                <th>Cheese</th>
+                <th>Extra Cheese</th>
+                <th>Chilli Chow Special Jumbo Veg Burger</th>
+            </tr>
+            <tr>
+                <td>Veg Burger</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Burger (Normal)', '₹ 40')">Order Now - ₹ 40</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Burger (Cheese)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Burger (Extra Cheese)', '₹ 60')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Burger (Chilli Chow Special Jumbo)', '₹ 80')">Order Now - ₹ 80</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Burger</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Burger (Normal)', '₹ 60')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Burger (Cheese)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Burger (Extra Cheese)', '₹ 80')">Order Now - ₹ 80</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Burger (Chilli Chow Special Jumbo)', '₹ 120')">Order Now - ₹ 120</button></td>
+            </tr>
+            <tr>
+                <td>Paneer Burger</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Burger (Normal)', '₹ 60')">Order Now - ₹ 60</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Burger (Cheese)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Burger (Extra Cheese)', '₹ 80')">Order Now - ₹ 80</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Burger (Chilli Chow Special Jumbo)', '₹ 120')">Order Now - ₹ 120</button></td>
+            </tr>
+        </table>
+
+        <div class="section-title">Sandwich</div>
+        <table>
+            <tr>
+                <th>Variety</th>
+                <th>Normal</th>
+                <th>Cheese</th>
+                <th>Grill</th>
+            </tr>
+            <tr>
+                <td>Veg Sandwich</td>
+                <td><button class="order-btn" onclick="orderItem('Veg Sandwich (Normal)', '₹ 40')">Order Now - ₹ 40</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Sandwich (Cheese)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg Sandwich (Grill)', '₹ 60')">Order Now - ₹ 60</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Sandwich</td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Sandwich (Normal)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Sandwich (Cheese)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Chicken Sandwich (Grill)', '₹ 70')">Order Now - ₹ 70</button></td>
+            </tr>
+            <tr>
+                <td>Paneer Sandwich</td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Sandwich (Normal)', '₹ 50')">Order Now - ₹ 50</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Sandwich (Cheese)', '₹ 70')">Order Now - ₹ 70</button></td>
+                <td><button class="order-btn" onclick="orderItem('Paneer Sandwich (Grill)', '₹ 70')">Order Now - ₹ 70</button></td>
+            </tr>
+        </table>
+
+      
+
+    
+
+        
+
+        <div class="section-title">Cart</div>
+        <div class="cart-container">
+            <div id="cart-items" class="cart-title">Your Cart is Empty</div>
+            <div class="cart-actions">
+                <button class="order-btn" onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
     </div>
-
-    <div class="menu-item">
-        <h3>Chowmin</h3>
-        <button onclick="openChowminOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>Rice</h3>
-        <button onclick="openRiceOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>French Fries</h3>
-        <button onclick="openFriesOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>Chilly</h3>
-        <button onclick="openChillyFriesOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>Diet Options</h3>
-        <button onclick="openDietOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>Rolls</h3>
-        <button onclick="openRollsOptions()">Order Now</button>
-    </div>
-
-    <div class="menu-item">
-        <h3>Burger</h3>
-        <button onclick="openBurgerOptions()">Order Now</button>
-    </div>
-
-    <!-- Modals -->
-    <div class="overlay" id="overlay"></div>
-
-    <div class="modal" id="momosOptions">
-        <h3>Select Momos Type:</h3>
-        <button onclick="selectMomosType('Steam Momos', 50, 100)">Steam Momos (₹50/₹100)</button>
-        <button onclick="selectMomosType('Chilly Momos', 60, 110)">Chilly Momos (₹60/₹110)</button>
-        <button onclick="selectMomosType('Kurkure Momos', 70, 120)">Kurkure Momos (₹70/₹120)</button>
-        <button onclick="selectMomosType('Fry Momos', 65, 115)">Fry Momos (₹65/₹115)</button>
-    </div>
-
-    <div class="modal" id="chowminOptions">
-        <h3>Select Chowmin Type:</h3>
-        <button onclick="selectChowminType('Chicken Chowmin', 80, 150)">Chicken Chowmin (₹80/₹150)</button>
-        <button onclick="selectChowminType('Egg Chowmin', 70, 130)">Egg Chowmin (₹70/₹130)</button>
-        <button onclick="selectChowminType('Mix Chowmin', 90, 160)">Mix Chowmin (₹90/₹160)</button>
-        <button onclick="selectChowminType('Spring Chowmin', 75, 140)">Spring Chowmin (₹75/₹140)</button>
-    </div>
-
-    <div class="modal" id="riceOptions">
-        <h3>Select Rice Type:</h3>
-        <button onclick="selectRiceType('Chicken Rice', 90, 160)">Chicken Rice (₹90/₹160)</button>
-        <button onclick="selectRiceType('Egg Rice', 80, 150)">Egg Rice (₹80/₹150)</button>
-        <button onclick="selectRiceType('Mix Rice', 100, 180)">Mix Rice (₹100/₹180)</button>
-        <button onclick="selectRiceType('Spring Rice', 85, 160)">Spring Rice (₹85/₹160)</button>
-    </div>
-
-    <div class="modal" id="friesOptions">
-        <h3>Select Fries Type:</h3>
-        <button onclick="selectFriesType('Classic Fries', 40, 70)">Classic Fries (₹40/₹70)</button>
-        <button onclick="selectFriesType('Cheese Fries', 50, 80)">Cheese Fries (₹50/₹80)</button>
-    </div>
-
-    <div class="modal" id="chillyFriesOptions">
-        <h3>Select Chilly Type:</h3>
-        <button onclick="selectChillyFriesType('Paneer Chilly', 70, 140)">Paneer Chilly (₹70/₹140)</button>
-        <button onclick="selectChillyFriesType('Chicken Chilly', 90, 150)">Chicken Chilly (₹90/₹150)</button>
-        <button onclick="selectChillyFriesType('Manchurian Chilly', 75, 125)">Manchurian Chilly (₹75/₹125)</button>
-        <button onclick="selectChillyFriesType('Chana Chilly', 75, 175)">Chana Chilly (₹75/₹175)</button>
-        <button onclick="selectChillyFriesType('Baby Corn Chilly', 120, 230)">Baby Corn Chilly (₹120/₹230)</button>
-    </div>
-
-    <div class="modal" id="dietOptions">
-        <h3>Select Diet Option:</h3>
-        <button onclick="selectDietOption('Veg Diet', 120)"> Veg Diet (₹50)</button>
-        <button onclick="selectDietOption('Chicken Diet', 170)">Chicken Diet (₹170)</button>
-        <button onclick="selectDietOption('Premium Diet', 230)">Premium Diet (₹230)</button>
-    </div>
-
-    <div class="modal" id="rollsOptions">
-        <h3>Select Rolls Type:</h3>
-        <button onclick="selectRollsType('Chicken Roll', 90)">Chicken Roll (₹90)</button>
-        <button onclick="selectRollsType('Veg Roll', 80)">Veg Roll (₹80)</button>
-    </div>
-
-    <div class="modal" id="burgerOptions">
-        <h3>Select Burger Type:</h3>
-        <button onclick="selectBurgerType('Chicken Burger', 100)">Chicken Burger (₹100)</button>
-        <button onclick="selectBurgerType('Veg Burger', 90)">Veg Burger (₹90)</button>
-    </div>
-
-    <div class="cart-page" id="cartPage">
-        <h3>Your Order</h3>
-        <div id="cartItems"></div>
-        <button onclick="sendOrderToWhatsApp()">Send Order to WhatsApp</button>
-        <button onclick="clearCart()">Clear Cart</button>
-        <button onclick="closeCart()">Close</button>
-    </div>
-
-    <footer>
-        <p>Designed by ankit</p>
-    </footer>
 
     <script>
         const cart = [];
-        const whatsappNumber = '+919031765770'; 
 
-        function openMomosOptions() {
-            document.getElementById('momosOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openChowminOptions() {
-            document.getElementById('chowminOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openRiceOptions() {
-            document.getElementById('riceOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openFriesOptions() {
-            document.getElementById('friesOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openChillyFriesOptions() {
-            document.getElementById('chillyFriesOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openDietOptions() {
-            document.getElementById('dietOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openRollsOptions() {
-            document.getElementById('rollsOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function openBurgerOptions() {
-            document.getElementById('burgerOptions').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function closeModal() {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => modal.style.display = 'none');
-            document.getElementById('overlay').style.display = 'none';
-        }
-
-        function selectMomosType(type, smallPrice, largePrice) {
-            cart.push({ item: `Momos (${type})`, price: smallPrice });
-            closeModal();
-            updateCart();
-        }
-
-        function selectChowminType(type, smallPrice, largePrice) {
-            cart.push({ item: `Chowmin (${type})`, price: smallPrice });
-            closeModal();
-            updateCart();
-        }
-
-        function selectRiceType(type, smallPrice, largePrice) {
-            cart.push({ item: `Rice (${type})`, price: smallPrice });
-            closeModal();
-            updateCart();
-        }
-
-        function selectFriesType(type, smallPrice, largePrice) {
-            cart.push({ item: `Fries (${type})`, price: smallPrice });
-            closeModal();
-            updateCart();
-        }
-
-        function selectChillyFriesType(type, smallPrice, largePrice) {
-            cart.push({ item: `Chilly Fries (${type})`, price: smallPrice });
-            closeModal();
-            updateCart();
-        }
-
-        function selectDietOption(type, price) {
-            cart.push({ item: `Diet (${type})`, price: price });
-            closeModal();
-            updateCart();
-        }
-
-        function selectRollsType(type, price) {
-            cart.push({ item: `Rolls (${type})`, price: price });
-            closeModal();
-            updateCart();
-        }
-
-        function selectBurgerType(type, price) {
-            cart.push({ item: `Burger (${type})`, price: price });
-            closeModal();
+        function orderItem(item, price) {
+            const existingItem = cart.find(cartItem => cartItem.item === item);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ item, price, quantity: 1 });
+            }
             updateCart();
         }
 
         function updateCart() {
-            const cartPage = document.getElementById('cartPage');
-            const cartItems = document.getElementById('cartItems');
-            cartItems.innerHTML = '';
-            let total = 0;
-
-            cart.forEach(item => {
-                const div = document.createElement('div');
-                div.innerHTML = `${item.item} - ₹${item.price}`;
-                cartItems.appendChild(div);
-                total += item.price;
-            });
-
-            const totalDiv = document.createElement('div');
-            totalDiv.innerHTML = `<strong>Total: ₹${total}</strong>`;
-            cartItems.appendChild(totalDiv);
-
-            cartPage.style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
+            const cartItemsDiv = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = 'Your Cart is Empty';
+            } else {
+                let cartHTML = '<h2>Your Cart</h2>';
+                let total = 0;
+                cart.forEach(cartItem => {
+                    const itemTotal = parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity;
+                    total += itemTotal;
+                    cartHTML += `<div class="cart-item">${cartItem.item} - ₹ ${itemTotal} (${cartItem.quantity}x)</div>`;
+                });
+                cartHTML += `<div class="cart-item">Total: ₹ ${total}</div>`;
+                cartItemsDiv.innerHTML = cartHTML;
+            }
         }
 
-        function sendOrderToWhatsApp() {
-            const orderDetails = cart.map(item => `${item.item} - ₹${item.price}`).join('\n');
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const message = `Order Details:\n${orderDetails}\n\nTotal: ₹${total}`;
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, '_blank');
-        }
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
 
-        function clearCart() {
-            cart.length = 0;
-            updateCart();
-        }
-
-        function closeCart() {
-            document.getElementById('cartPage').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
+            const name = prompt('Enter your name:');
+            const phoneNumber = prompt('Enter your phone number:');
+            if (name && phoneNumber) {
+                const orderDetails = cart.map(cartItem => `${cartItem.item} (${cartItem.quantity}x)`).join(', ');
+                const total = cart.reduce((sum, cartItem) => sum + (parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity), 0);
+                const message = `Order Details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nItems: ${orderDetails}\nTotal: ₹ ${total}`;
+                const encodedMessage = encodeURIComponent(message);
+                window.location.href = `https://wa.me/919031765770?text=${encodedMessage}`;
+            } else {
+                alert('Please provide all required information.');
+            }
         }
     </script>
+
 </body>
 </html>
