@@ -22,7 +22,7 @@
         }
 
         nav {
-            background-color: #de5608;
+            background-color: #f34601;
             color: white;
             padding: 10px 20px;
             display: flex;
@@ -60,23 +60,39 @@
         }
 
         .coming-soon {
-            text-align: center;
-            padding: 150px 20px;
-            background: url('https://ideogram.ai/assets/progressive-image/balanced/response/vVppPbP4QiixI6tJsI4UFQ') no-repeat center center/cover;
-            color: rgb(255, 255, 255);
-            position: relative;
-            overflow: hidden;
-        }
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/logo.jpeg') no-repeat center center/cover;
+    filter: blur(2px); 
+    z-index: -1; 
+}
+
 
         .coming-soon h2 {
             font-size: 3.5em;
-            color: white;
+            text-align: center; 
+    background-image: url('https://rukminim2.flixcart.com/image/850/1000/kp4difk0/wallpaper/f/e/v/228-40-3d-wallpaper-27-colorsolution-original-imag3ffz9zyzymrj.jpeg?q=90&crop=false'); 
+    background-size: contain; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            animation: fadeInDown 1.5s ease-in-out;
+            animation: fadeInDown 2.5s ease-in-out;
         }
 
         .coming-soon p {
             font-size: 1.5em;
+            background-image: url('https://rukminim2.flixcart.com/image/850/1000/kp4difk0/wallpaper/f/e/v/228-40-3d-wallpaper-27-colorsolution-original-imag3ffz9zyzymrj.jpeg?q=90&crop=false'); 
+            background-size: contain; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             animation: fadeInUp 2s ease-in-out;
         }
 
@@ -94,30 +110,10 @@
             margin-bottom: 10px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            color: #d32f2f;
-        }
-
-        td img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
+        
 
         footer {
-            background-color: #de5608;
+            background-color: #f34601;
             color: white;
             text-align: center;
             padding: 20px 0;
@@ -126,8 +122,8 @@
         }
 
         @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; transform: translateY(-100px); }
+            100% { opacity: 1; transform: translateY(20px); }
         }
 
         @keyframes fadeInUp {
@@ -145,7 +141,7 @@
             100% { opacity: 1; }
         }
 
-        /* Media Queries for Responsiveness */
+
 
         @media (max-width: 1200px) {
             nav h1 {
@@ -269,6 +265,27 @@
                 height: 16px;
             }
         }
+        .responsive-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.responsive-images img {
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+    object-fit: cover; 
+}
+
+@media (max-width: 768px) {
+    .responsive-images {
+        flex-direction: column; 
+        align-items: center;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -276,15 +293,21 @@
         <h1>Chilli Chow Junction</h1>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="menu.html">Order Now</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <div class="coming-soon">
-        <h2>Mark Your Calendars for Flavor!</h2> <p>Get ready for a flavor explosion! Chilli Chow Junction is bringing you the best momos, chowmein, and more. Join us at our grand opening on August 25th, 2024, at Nead Patel School, Chhota Govindpur, Jamshedpur. Don’t miss out on the culinary adventure!</p>
+        <h2>Taste the Difference at Chilli Chow Junction!</h2> 
+        <p>Join us for the grand opening on August 25th at Nead Patel School, and savor the ultimate momo and chowmein experience! Open daily from 4 PM to 10:30 PM—your new favorite spot in Jamshedpur awaits!</p>
     </div>
-
+    <h1 style="text-align: center; color: #f34601;">Menu </h1>
+    <div class="responsive-images">
+        <img src="images/210.png" alt="">
+        <img src="images/220.png" alt="">
+        <img src="images/menu.png" alt="">
+    </div>
 
 
     <footer>
