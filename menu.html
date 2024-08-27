@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chilli Chow Junction Menu</title>
+    <title>Chilli Chow Junction Order Section</title>
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+    <meta name="description" content="Get in touch with Chilli Chow Junction, a popular fast food spot in Jamshedpur. Find our location, contact details, and more on our contact page.">
+    <meta name="keywords" content="Chilli Chow Junction, fast food, Jamshedpur, contact us, restaurant location, food delivery, get in touch">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -807,41 +810,41 @@
         }
     
         function placeOrder() {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
-    
-            const location = prompt('Enter your location: Govindpur or Outside ');
-            if (location.toLowerCase() === 'govindpur') {
-                deliveryCharge = 20;
-            } else if (location.toLowerCase() === 'outside') {
-                specificLocation = prompt('Please enter your specific location:'); 
-                deliveryCharge = 50;
-            } else {
-                alert('Please enter a valid location (Govindpur or Outside ).');
-                return;
-            }
-    
-            updateCart(); 
-    
-            const name = prompt('Enter your name:');
-            const phoneNumber = prompt('Enter your phone number:');
-            if (name && phoneNumber) {
-                const orderDetails = cart.map(cartItem => `${cartItem.item} (${cartItem.quantity}x)`).join(', ');
-                const total = cart.reduce((sum, cartItem) => sum + (parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity), 0) + deliveryCharge;
-                let message = `Order Details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nLocation: ${location}`;
-                if (location.toLowerCase() === 'outside govindpur') {
-                    message += `\nSpecific Location: ${specificLocation}`;
-                }
-    
-                message += `\nItems: ${orderDetails}\nDelivery Charge: ₹ ${deliveryCharge}\nTotal: ₹ ${total}`;
-                const encodedMessage = encodeURIComponent(message);
-                window.location.href = `https://wa.me/919031765770?text=${encodedMessage}`;
-            } else {
-                alert('Please provide all required information.');
-            }
-        }
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    const location = prompt('Enter your location: Govindpur or Outside');
+    if (location.toLowerCase() === 'govindpur') {
+        specificLocation = prompt('Please enter your specific Complete Address within Govindpur:');
+        deliveryCharge = 20;
+    } else if (location.toLowerCase() === 'outside') {
+        specificLocation = prompt('Please enter your Complete Adress :');
+        deliveryCharge = 50;
+    } else {
+        alert('Please enter a valid location (Govindpur or Outside).');
+        return;
+    }
+
+    updateCart(); 
+
+    const name = prompt('Enter your name:');
+    const phoneNumber = prompt('Enter your phone number:');
+    if (name && phoneNumber) {
+        const orderDetails = cart.map(cartItem => `${cartItem.item} (${cartItem.quantity}x)`).join(', ');
+        const total = cart.reduce((sum, cartItem) => sum + (parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity), 0) + deliveryCharge;
+        let message = `Order Details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nLocation: ${specificLocation}`;
+
+        message += `\nItems: ${orderDetails}\nDelivery Charge: ₹ ${deliveryCharge}\nTotal: ₹ ${total}`;
+        const encodedMessage = encodeURIComponent(message);
+        window.location.href = `https://wa.me/919031765770?text=${encodedMessage}`;
+    } else {
+        alert('Please provide all required information.');
+    }
+}
+
+
     </script>
     
 
