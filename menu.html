@@ -449,7 +449,7 @@
             </tr>
             <tr>
                 <td>Veg Chowmein</td>
-                <td><button class="order-btn" onclick="orderItem('Veg (Half) Chowmein', '₹ 40')">Order Now - ₹ 40 </button></td>
+                <td><button class="order-btn" onclick="orderItem('Veg (Half) Chowmein', '₹ 40')" >Order Now - ₹ 40 </button></td>
                 <td><button class="order-btn" onclick="orderItem('Veg (Full) Chowmein', '₹ 80')">Order Now - ₹ 80 </button></td>
             </tr>
             <tr>
@@ -765,7 +765,6 @@
             </div>
         </div>
     </div>
-
     <script>
         const cart = [];
         let deliveryCharge = 0;
@@ -788,10 +787,15 @@
             } else {
                 let cartHTML = '<h2>Your Cart</h2>';
                 let total = 0;
-                cart.forEach(cartItem => {
+                cart.forEach((cartItem, index) => {
                     const itemTotal = parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity;
                     total += itemTotal;
-                    cartHTML += `<div class="cart-item">${cartItem.item} - ₹ ${itemTotal} (${cartItem.quantity}x)</div>`;
+                    cartHTML += `
+                        <div class="cart-item">
+                            ${cartItem.item} - ₹ ${itemTotal} (${cartItem.quantity}x)
+                            <button onclick="addItem(${index})" style="background-color: #cd2b12;     color: white;">+</button>
+                            <button onclick="removeItem(${index})" style="background-color: #cd2b12;    color: white;">-</button>
+                        </div>`;
                 });
                 if (total > 300 && deliveryCharge === 20) {
                     deliveryCharge = 0;
@@ -809,43 +813,56 @@
             }
         }
     
+        function addItem(index) {
+            cart[index].quantity++;
+            updateCart();
+        }
+    
+        function removeItem(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+    
         function placeOrder() {
-    if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-    }
-
-    const location = prompt('Enter your location: Govindpur or Outside');
-    if (location.toLowerCase() === 'govindpur') {
-        specificLocation = prompt('Please enter your specific Complete Address within Govindpur:');
-        deliveryCharge = 20;
-    } else if (location.toLowerCase() === 'outside') {
-        specificLocation = prompt('Please enter your Complete Adress :');
-        deliveryCharge = 50;
-    } else {
-        alert('Please enter a valid location (Govindpur or Outside).');
-        return;
-    }
-
-    updateCart(); 
-
-    const name = prompt('Enter your name:');
-    const phoneNumber = prompt('Enter your phone number:');
-    if (name && phoneNumber) {
-        const orderDetails = cart.map(cartItem => `${cartItem.item} (${cartItem.quantity}x)`).join(', ');
-        const total = cart.reduce((sum, cartItem) => sum + (parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity), 0) + deliveryCharge;
-        let message = `Order Details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nLocation: ${specificLocation}`;
-
-        message += `\nItems: ${orderDetails}\nDelivery Charge: ₹ ${deliveryCharge}\nTotal: ₹ ${total}`;
-        const encodedMessage = encodeURIComponent(message);
-        window.location.href = `https://wa.me/919031765770?text=${encodedMessage}`;
-    } else {
-        alert('Please provide all required information.');
-    }
-}
-
-
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+    
+            const location = prompt('Enter your location: Govindpur or Outside');
+            if (location.toLowerCase() === 'govindpur') {
+                specificLocation = prompt('Please enter your specific Complete Address within Govindpur:');
+                deliveryCharge = 20;
+            } else if (location.toLowerCase() === 'outside') {
+                specificLocation = prompt('Please enter your Complete Address:');
+                deliveryCharge = 50;
+            } else {
+                alert('Please enter a valid location (Govindpur or Outside).');
+                return;
+            }
+    
+            updateCart(); 
+    
+            const name = prompt('Enter your name:');
+            const phoneNumber = prompt('Enter your phone number:');
+            if (name && phoneNumber) {
+                const orderDetails = cart.map(cartItem => `${cartItem.item} (${cartItem.quantity}x)`).join(', ');
+                const total = cart.reduce((sum, cartItem) => sum + (parseInt(cartItem.price.replace('₹ ', '')) * cartItem.quantity), 0) + deliveryCharge;
+                let message = `Order Details:\n\nName: ${name}\nPhone Number: ${phoneNumber}\nLocation: ${specificLocation}`;
+    
+                message += `\nItems: ${orderDetails}\nDelivery Charge: ₹ ${deliveryCharge}\nTotal: ₹ ${total}`;
+                const encodedMessage = encodeURIComponent(message);
+                window.location.href = `https://wa.me/919031765770?text=${encodedMessage}`;
+            } else {
+                alert('Please provide all required information.');
+            }
+        }
     </script>
+    
     
 
 </body>
