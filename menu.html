@@ -765,6 +765,32 @@
             </div>
         </div>
     </div>
+    <footer class="footer" id="contact" style="background-color: #f34601;">
+        <div class="footer-text">
+           
+            <p>&copy; 2024 Chilli Chow Junction. All rights reserved.</p>
+           
+            <p>
+
+                <B style="color: rgb(8, 193, 255);">Designed by <a href="https://www.linkedin.com/in/ankit-kumar-01a52827b/" style="color: rgb(214, 214, 214);">ankit</a></B>
+            </p>
+        </div>
+        <p style="font-weight: bolder;color: whitesmoke;text-align: center;">Number of visitors   : <span class="counter" id="visitor-count" style="color: whitesmoke; font-weight: bolder;text-align: center;"></span></p>
+        <script>
+            if (!localStorage.getItem('visitorCount')) {
+                localStorage.setItem('visitorCount', 1);
+            } else {
+                let count = parseInt(localStorage.getItem('visitorCount'));
+                count += 1;
+                localStorage.setItem('visitorCount', count);
+            }
+            document.getElementById('visitor-count').textContent = localStorage.getItem('visitorCount');
+        </script>
+
+        <div class="footer-iconTop">
+            <a href="index.html" style="background: rgb(183, 234, 250);"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
     <script>
         const cart = [];
         let deliveryCharge = 0;
